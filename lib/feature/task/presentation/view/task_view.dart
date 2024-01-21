@@ -1,29 +1,26 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../view_model/cubit/task_cubit.dart';
+import '../cubit/task_cubit.dart';
 import 'add_task.dart';
 import 'home_view.dart';
-import '../../constants/app_color.dart';
-import '../../constants/constants.dart';
-import '../../constants/global_method.dart';
+import '../../../../constants/app_color.dart';
+import '../../../../constants/constants.dart';
+import '../../../../constants/global_method.dart';
 
 class TaskView extends StatelessWidget {
   const TaskView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<TaskCubit, TaskState>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+    return BlocBuilder<TaskCubit, TaskState>(
       builder: (context, state) {
         var cubit = TaskCubit.get(context);
         return Scaffold(
           extendBodyBehindAppBar: true,
           appBar: AppBar(
             leading: IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back,
                 size: 30,
                 color: AppColors.mainColor,
@@ -59,10 +56,10 @@ class TaskView extends StatelessWidget {
                     children: [
                       IconButton(
                         onPressed: () {
-                          navigationAndEnd(
+                          navigationAndReplacement(
                               context: context, screen: const HomeView());
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.home,
                           color: AppColors.secondaryColor,
                           size: 30,
@@ -70,16 +67,17 @@ class TaskView extends StatelessWidget {
                       ),
                       IconButton(
                         onPressed: () {
-                          navigationTo(context: context, screen: AddTaskView());
+                          navigationTo(
+                              context: context, screen: const AddTaskView());
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.add_circle,
                           color: AppColors.mainColor,
                           size: 30,
                         ),
                       ),
                       const Spacer(),
-                      Icon(
+                      const Icon(
                         Icons.list_alt_rounded,
                         color: AppColors.secondaryColor,
                         size: 30,
@@ -91,7 +89,7 @@ class TaskView extends StatelessWidget {
                         cubit.tasks.length.toString(),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 14,
                         ),
@@ -163,7 +161,7 @@ class TaskView extends StatelessWidget {
                                 color: AppColors.textHolder,
                                 child: Text(
                                   cubit.tasks[index]['title'].toString(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.black,
                                     fontSize: 20,
                                   ),

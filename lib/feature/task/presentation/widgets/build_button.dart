@@ -1,24 +1,18 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
-import '../../constants/app_color.dart';
-import '../../constants/constants.dart';
+import '../../../../../constants/constants.dart';
 
 class BuildButton extends StatelessWidget {
-  var function;
-  var color;
-  var text;
-  var textColor;
-  BuildButton({
-    super.key,
-    this.color,
-    this.textColor,
+  final void Function()? function;
+  final Color? color;
+  final String? text;
+  final Color? textColor;
+  const BuildButton({
+    Key? key,
     this.function,
+    this.color,
     this.text,
-  });
+    this.textColor,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

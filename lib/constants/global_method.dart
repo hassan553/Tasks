@@ -9,7 +9,7 @@ navigationTo({context, screen}) {
   );
 }
 
-navigationAndEnd({context, screen}) {
+navigationAndReplacement({context, screen}) {
   Navigator.pushReplacement(
     context,
     MaterialPageRoute(builder: (_) {

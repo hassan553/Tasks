@@ -1,30 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks/data/data.dart';
-
-import '../../constants/app_color.dart';
-import '../../constants/global_method.dart';
+import '../../../../constants/app_color.dart';
+import '../../../../constants/global_method.dart';
+import '../ui/widgets/build_button.dart';
 import 'add_task.dart';
 import 'task_view.dart';
-import '../widgets/build_button.dart';
+import '../../../../constants/constants.dart';
 
-
-import '../../constants/constants.dart';
-
-class HomeView extends StatefulWidget {
+class HomeView extends StatelessWidget {
   const HomeView({super.key});
-
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
-  
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    AppDatabase().create();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +31,7 @@ class _HomeViewState extends State<HomeView> {
               const Spacer(
                 flex: 2,
               ),
-              Text(
+              const Text(
                 'Hello',
                 style: TextStyle(
                   color: AppColors.mainColor,
@@ -57,7 +40,7 @@ class _HomeViewState extends State<HomeView> {
                   letterSpacing: 1.4,
                 ),
               ),
-              Text(
+              const Text(
                 'start your beautiful day',
                 style: TextStyle(
                   color: AppColors.mainColor,
@@ -73,9 +56,8 @@ class _HomeViewState extends State<HomeView> {
                 function: () {
                   navigationTo(
                     context: context,
-                    screen: AddTaskView(),
+                    screen: const AddTaskView(),
                   );
-               
                 },
                 text: 'Add Task',
                 textColor: Colors.white,
@@ -90,8 +72,6 @@ class _HomeViewState extends State<HomeView> {
                     context: context,
                     screen: const TaskView(),
                   );
-
-                
                 },
                 text: 'View All',
                 textColor: AppColors.mainColor,
